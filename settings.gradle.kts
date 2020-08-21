@@ -1,1 +1,1 @@
-rootProject.name = "demo-graphqk"
+rootProject.name = "demo-graphql"
