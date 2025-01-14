@@ -1,8 +1,13 @@
 spring:
   profiles: default
-  data.mongodb:
-    host: localhost:27017
-    database: demo
+  data:
+    mongodb:
+      uri: mongodb+srv://dolaoye:2ArPEPZSdrP9cy7J@cluster1.mx2a8.mongodb.net/demo?retryWrites=true&w=majority&appName=Cluster1
 
 graphql:
   packages: "com.example.demographql"
+  server:
+    enabled: true
+    endpoint: "/graphql"
+  playground:
+    enabled: true
