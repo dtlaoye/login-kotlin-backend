@@ -12,8 +12,4 @@ import reactor.core.publisher.Mono
 class UserQuery: Query {
     @Autowired
     private lateinit var userService: UserService
-
-    fun login(username: String): Mono<User> {
-        return userService.findByUsername(username)
-    }
 }
