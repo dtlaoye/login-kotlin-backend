@@ -12,19 +12,20 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource
 @Configuration
 @EnableWebFluxSecurity
 class SecurityConfig {
+
     @Bean
     fun securityWebFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
-        http.csrf().disable()
-            .authorizeExchange {
-                it.anyExchange().permitAll() // Allow all requests
-            }
+        http
+            .cors { it.disable() } // Disable built-in CORS handling
+            .csrf { it.disable() }
+            .authorizeExchange { it.anyExchange().permitAll() } // Allow all requests
         return http.build()
     }
 
     @Bean
     fun corsWebFilter(): CorsWebFilter {
         val config = CorsConfiguration()
-        config.allowedOrigins = listOf("http://localhost:3000") // Add your frontend origin
+        config.allowedOrigins = listOf("*") // Allow all origins (test only)
         config.allowedMethods = listOf("GET", "POST", "PUT", "DELETE", "OPTIONS")
         config.allowedHeaders = listOf("*")
         config.allowCredentials = true
@@ -35,3 +36,4 @@ class SecurityConfig {
         return CorsWebFilter(source)
     }
 }
+
