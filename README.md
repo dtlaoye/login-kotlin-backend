@@ -19,7 +19,7 @@ Ensure you have the following installed:
 1. Clone the repository:
    ```sh
    git clone <repository-url>
-   cd graphql-workday-project
+   cd login-kotlin-backend
    ```
 2. Configure the database settings in `src/main/resources/application.yml`.
 3. Build and run the application:
